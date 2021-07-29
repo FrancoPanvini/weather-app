@@ -11,9 +11,8 @@ import fetchCity from './services/fetchCity'
 
 function App() {
   const [cities, setCities] = useState([]);
-  
   function onSearch(ciudad) {
-    return fetchCity (ciudad, setCities);
+    return fetchCity (ciudad, setCities, cities);
   }
 
 
