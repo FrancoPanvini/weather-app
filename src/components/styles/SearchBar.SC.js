@@ -42,7 +42,7 @@ export const Button = styled.button`
 
   /* Animation */
 
-  &:hover {
+  &:focus {
     -webkit-animation: jello-horizontal 1s ease-in-out;
     animation: jello-horizontal 1s ease-in-out;
   }
