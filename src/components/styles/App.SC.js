@@ -9,16 +9,9 @@ export const Content = styled.section`
 
   margin: auto;
 
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // flex-wrap: wrap;
-
-  //Prueba
   display: grid;
-  grid-template-columns: 0.25fr .75fr;
+  grid-template-columns: 0.25fr 0.75fr;
   grid-template-rows: 1fr;
-  //
 `;
 
 export const ContentRow = styled.div`

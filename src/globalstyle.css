@@ -1,21 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,200;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,200;1,400;1,700&display=swap");
 
 :root {
-    --background-color1: #055052;
-    --background-color2: #003638;
-    --font-color: #F3F2C9;
-    --other-color: #53B8BB;
-    --global-font: 'Montserrat', sans-serif;
+  --background-color1: #055052;
+  --background-color2: #003638;
+  --font-color: #f3f2c9;
+  --other-color: #53b8bb;
+  --global-font: "Montserrat", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, span, div {
-    font-family: var(--global-font);
-    color: var(--font-color);
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  font-family: var(--global-font);
+  color: var(--font-color);
+  margin: 0;
 }
 
 h1 {
-    font-weight: 300;
-    font-size: 1.5em;
+  font-weight: 300;
+  font-size: 1.5em;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./media/background2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}

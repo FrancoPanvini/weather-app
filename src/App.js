@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import ImageBackgroud from "./components/ImageBackground.jsx";
 import MainCard from "./components/MainCard";
 import Cards from "./components/Cards.jsx";
 import SearchBar from "./components/SearchBar";
@@ -9,7 +8,6 @@ import {Content, ContentRow, ContentFlexBox } from "./components/styles/App.SC";
   
 import fetchCity from './services/fetchCity'
 
-import image from "./media/background2.jpg";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -39,7 +37,6 @@ function App() {
 
   return (
     <>
-      <ImageBackgroud src={image} />
       <ContentRow>
         <SearchBar onSearch={onSearch} />
       </ContentRow>
