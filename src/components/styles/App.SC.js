@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const Cont = styled.section`
+export const Content = styled.section`
   position: absolute;
   top: 6rem;
   bottom: 0;
@@ -40,7 +39,3 @@ export const ContentFlexBox = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
 `;
-
-export default function Content({ children }) {
-  return <Cont>{children}</Cont>;
-}
