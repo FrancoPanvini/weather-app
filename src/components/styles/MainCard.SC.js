@@ -19,8 +19,8 @@ export const Container = styled.div`
 
   /*Animation*/
 
-  animation: fadeIn 1.25s ease;
-  @keyframes fadeIn {
+  animation: fadeIn2 1.25s ease;
+  @keyframes fadeIn2 {
     from {
       opacity: 0;
       transform: translateY(2.25rem);
