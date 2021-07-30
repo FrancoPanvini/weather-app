@@ -16,6 +16,21 @@ export const Container = styled.div`
   margin: 0.5rem 1rem;
 
   position: fixed;
+
+  /*Animation*/
+
+  animation: fadeIn 1.25s ease;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(2.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /*End animation*/
 `;
 
 export const Header = styled.div`
