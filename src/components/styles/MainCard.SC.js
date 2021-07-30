@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   margin: 0.5rem 1rem;
 
-  // position: fixed;
+  position: fixed;
 `;
 
 export const Header = styled.div`

@@ -4,17 +4,20 @@ import MainCard from "./components/MainCard";
 import Cards from "./components/Cards.jsx";
 import SearchBar from "./components/SearchBar";
 
-import {Content, ContentRow, ContentFlexBox } from "./components/styles/App.SC";
-  
-import fetchCity from './services/fetchCity'
+import {
+  Content,
+  ContentRow,
+  ContentFlexBox,
+} from "./components/styles/App.SC";
 
+import fetchCity from "./services/fetchCity";
 
 function App() {
   const [cities, setCities] = useState([]);
-  function onSearch(ciudad) {
-    return fetchCity (ciudad, setCities, cities);
-  }
 
+  function onSearch(ciudad) {
+    return fetchCity(ciudad, setCities, cities);
+  }
 
   function onClose(id) {
     setCities((oldCities) => oldCities.filter((c) => c.id !== id));
@@ -40,21 +43,7 @@ function App() {
         <SearchBar onSearch={onSearch} />
       </ContentRow>
       <Content>
-        {first && (
-          <MainCard
-            key={first.id}
-            name={first.name}
-            temp={first.temp}
-            weather={first.weather}
-            img={first.img}
-            min={first.min}
-            max={first.max}
-            termica={first.termica}
-            presion={first.presion}
-            humidity={first.humidity}
-            onClose={() => onClose(first.id)}
-          />
-        )}
+        {first && <MainCard city={first} key={first.id} />}
         <ContentFlexBox>
           <Cards cities={rest} onClose={onClose} onSelect={onSelect} />
         </ContentFlexBox>

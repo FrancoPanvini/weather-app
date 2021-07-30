@@ -6,24 +6,24 @@ import {Container, Header, Row, Cell, Title, Text, Temp, Data} from './styles/Ma
 
 
 
-export default function Card(props) {
+export default function Card({city}) {
   return (
     <Container>
       <Header>
-        <CloseButton onClose={props.onClose} />
+        <CloseButton onClose={city.onClose} />
       </Header>
       <Row>
-        <Title>{props.name}</Title>
+        <Title>{city.name}</Title>
       </Row>
       <Cell>
         <div>
-          <Temp>{Math.round(props.temp)}°</Temp>
-          <Text>{props.weather}</Text>
+          <Temp>{Math.round(city.temp)}°</Temp>
+          <Text>{city.weather}</Text>
         </div>
       </Cell>
       <Cell>
         <img
-          src={`http://openweathermap.org/img/wn/${props.img}@2x.png`}
+          src={`http://openweathermap.org/img/wn/${city.img}@2x.png`}
           alt="No se puede cargar la imagen"
         ></img>
       </Cell>
@@ -31,31 +31,31 @@ export default function Card(props) {
         <Text>Min</Text>
       </Cell>
       <Cell>
-        <Data>{Math.round(props.min)}°</Data>
+        <Data>{Math.round(city.min)}°</Data>
       </Cell>
       <Cell>
         <Text>Max</Text>
       </Cell>
       <Cell>
-        <Data>{Math.round(props.max)}°</Data>
+        <Data>{Math.round(city.max)}°</Data>
       </Cell>
       <Cell>
         <Text>° Sensation</Text>
       </Cell>
       <Cell>
-        <Data>{Math.round(props.termica)}°</Data>
+        <Data>{Math.round(city.termica)}°</Data>
       </Cell>
       <Cell>
         <Text>Pression</Text>
       </Cell>
       <Cell>
-        <Data>{Math.round(props.presion)}</Data>
+        <Data>{Math.round(city.presion)}</Data>
       </Cell>
       <Cell>
         <Text>Humidity</Text>
       </Cell>
       <Cell>
-        <Data>{Math.round(props.humidity)}%</Data>
+        <Data>{Math.round(city.humidity)}%</Data>
       </Cell>
     </Container>
   );

@@ -10,7 +10,7 @@ export const Content = styled.section`
   margin: auto;
 
   display: grid;
-  grid-template-columns: 0.25fr 0.75fr;
+  grid-template-columns: minmax(20rem,1fr) 3fr;
   grid-template-rows: 1fr;
 `;
 
@@ -27,6 +27,8 @@ export const ContentRow = styled.div`
 `;
 
 export const ContentFlexBox = styled.div`
+  grid-column-start: 2;
+
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
