@@ -22,6 +22,20 @@ export const Container = styled.div`
     margin: 0 0.5rem;
     background-color: #003638bd;
   }
+  /*Animation*/
+
+  animation: fadeIn 1.25s ease;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(2.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  /*End animation*/
 `;
 export const Header = styled.div`
   grid-column: 1 / span 2;
