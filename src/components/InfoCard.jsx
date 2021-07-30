@@ -1,16 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import CloseButton from "./CloseButton";
+import { AiOutlineCaretLeft } from "react-icons/ai"
 
-import {Container, Header, Row, Cell, Title, Text, Temp, Data} from './styles/MainCard.SC'
+import {
+  Container,
+  Header,
+  Row,
+  Cell,
+  Title,
+  Text,
+  Temp,
+  Data,
+} from "./styles/MainCard.SC";
 
 
-
-export default function Card({city, onClose}) {
+export default function Card({ city, onClose }) {
   return (
     <Container>
       <Header>
-        <CloseButton onClose={() => onClose(city.id)}>&#10006;</CloseButton>
+        <Link to="/">
+          <CloseButton>
+            <AiOutlineCaretLeft />
+          </CloseButton>
+        </Link>
       </Header>
       <Row>
         <Title>{city.name}</Title>

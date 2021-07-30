@@ -1,17 +1,28 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 import CloseButton from "./CloseButton";
 
 import { Container, Header, Title, Row, Text, Temp } from "./styles/Card.SC";
+import { AiFillCaretUp } from "react-icons/ai";
+import { FaInfo } from "react-icons/fa";
 
 export default function Card(props) {
   return (
     <Container>
       <Header>
-        <CloseButton onClose={props.onClose} />
+        <Link to={`/${props.id}`}>
+        <CloseButton >
+          <FaInfo />
+        </CloseButton>
+        </Link>
+        <CloseButton onClose={props.onSelect}>
+          <AiFillCaretUp />
+        </CloseButton>
+        <CloseButton onClose={props.onClose}>&#10006;</CloseButton>
       </Header>
       <Row>
-        <Title onClick={props.onSelect}>{props.name}</Title>
+        <Title>{props.name}</Title>
       </Row>
       <Row>
         <img

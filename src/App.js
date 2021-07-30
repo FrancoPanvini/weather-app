@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 
 import MainCard from "./components/MainCard";
+import InfoCard from "./components/InfoCard";
 import Cards from "./components/Cards.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Help from "./components/Help.jsx";
@@ -33,6 +34,15 @@ function App() {
     });
   }
 
+  function onFilter(id) {
+    let city = cities.filter((c) => c.id === parseInt(id));
+    if (city.length > 0) {
+      return city[0];
+    } else {
+      return null;
+    }
+  }
+
   const [first, ...rest] = cities;
 
   return (
@@ -42,7 +52,7 @@ function App() {
       </Route>
       <Route path="/" exact>
         <Content>
-          {first && <MainCard city={first} key={first.id} />}
+          {first && <MainCard city={first} onClose={onClose} key={first.id} />}
           <ContentFlexBox>
             <Cards cities={rest} onClose={onClose} onSelect={onSelect} />
           </ContentFlexBox>
@@ -51,6 +61,19 @@ function App() {
       <Route path="/help">
         <Help />
       </Route>
+      <Route
+        exact
+        path="/:id"
+        render={({ match }) => (
+          <Content>
+            <InfoCard
+              city={onFilter(match.params.id)}
+              onClose={onClose}
+              key={match.params.id}
+            />
+          </Content>
+        )}
+      ></Route>
     </>
   );
 }

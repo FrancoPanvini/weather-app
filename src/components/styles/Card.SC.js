@@ -43,15 +43,8 @@ export const Header = styled.div`
   justify-content: flex-end;
 `;
 
-export const Title = styled.h1`
-//texto para q no wrapee cuando no entra
-  // text-overflow: ellipsis;
-  // white-space: nowrap;
-  // overflow: hidden;
-  
+export const Title = styled.h1`  
   text-align: center;
-
-  cursor: pointer;
 `;
 
 export const Row = styled.div`
