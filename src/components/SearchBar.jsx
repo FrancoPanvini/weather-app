@@ -13,12 +13,14 @@ export default function SearchBar({ onSearch }) {
     if (event.charCode === 13) {
       onSearch(city);
       document.getElementById("ciudad").value = "";
+      setCity('')
     }
   };
-
+  
   const handleOnSearch = () => {
     onSearch(city);
     document.getElementById("ciudad").value = "";
+    setCity('')
   };
 
   return (
