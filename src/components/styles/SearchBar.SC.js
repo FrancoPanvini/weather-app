@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Bar = styled.input`
-  margin: 1rem 1rem 0 1rem;
+  margin: .5rem 1rem .5rem 1rem;
   width: 40vw;
 
   text-align: center;
@@ -22,31 +22,34 @@ export const Bar = styled.input`
 `;
 
 export const Button = styled.button`
-  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
   font-family: var(--global-font);
   font-weight: 500;
-  font-size: 0.8em;
+  font-size: xx-large;
   color: var(--font-color);
 
   background-color: var(--background-color2);
   opacity: 0.5;
   border: transparent 2px;
-  border-radius: 2em;
-  padding: 0.8em 1em;
-
+  border-radius: 9999px;
+  padding: 2px 10px;
+  margin: 0 1rem 0 0;
   cursor: pointer;
-
+  
   &:hover {
     opacity: 1;
   }
-
+  
   /* Animation */
-
+  
   &:focus {
     -webkit-animation: jello-horizontal 1s ease-in-out;
     animation: jello-horizontal 1s ease-in-out;
   }
-
+  
   @-webkit-keyframes jello-horizontal {
     0% {
       -webkit-transform: scale3d(1, 1, 1);
@@ -108,4 +111,6 @@ export const Button = styled.button`
     }
   }
   /* End Animation */
-`;
+  
+  `;
+  

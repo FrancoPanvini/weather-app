@@ -1,14 +1,12 @@
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
 
 import MainCard from "./components/MainCard";
 import Cards from "./components/Cards.jsx";
-import SearchBar from "./components/SearchBar";
+import Navbar from "./components/Navbar.jsx";
+import Help from "./components/Help.jsx";
 
-import {
-  Content,
-  ContentRow,
-  ContentFlexBox,
-} from "./components/styles/App.SC";
+import { Content, ContentFlexBox } from "./components/styles/App.SC";
 
 import fetchCity from "./services/fetchCity";
 
@@ -39,15 +37,20 @@ function App() {
 
   return (
     <>
-      <ContentRow>
-        <SearchBar onSearch={onSearch} />
-      </ContentRow>
-      <Content>
-        {first && <MainCard city={first} key={first.id} />}
-        <ContentFlexBox>
-          <Cards cities={rest} onClose={onClose} onSelect={onSelect} />
-        </ContentFlexBox>
-      </Content>
+      <Route path="/">
+        <Navbar onSearch={onSearch} />
+      </Route>
+      <Route path="/" exact>
+        <Content>
+          {first && <MainCard city={first} key={first.id} />}
+          <ContentFlexBox>
+            <Cards cities={rest} onClose={onClose} onSelect={onSelect} />
+          </ContentFlexBox>
+        </Content>
+      </Route>
+      <Route path="/help">
+        <Help />
+      </Route>
     </>
   );
 }

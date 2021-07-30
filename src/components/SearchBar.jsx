@@ -22,7 +22,7 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <div>
+    <>
       <Bar
         type="text"
         id="ciudad"
@@ -31,7 +31,7 @@ export default function SearchBar({ onSearch }) {
         onKeyPress={onKeyPress}
         onChange={onChange}
       ></Bar>
-      <Button onClick={handleOnSearch}>Add</Button>
-    </div>
+      <Button onClick={handleOnSearch}>+</Button>
+    </>
   );
 }
