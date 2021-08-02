@@ -66,11 +66,11 @@ function App() {
         path="/:id"
         render={({ match }) => (
           <Content>
-            <InfoCard
+            {first && <InfoCard
               city={onFilter(match.params.id)}
               onClose={onClose}
               key={match.params.id}
-            />
+            />}
           </Content>
         )}
       ></Route>
