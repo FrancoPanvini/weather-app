@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { cityAdd } from "../store/actionsGenerators";
+import { cityAdd, cityAddByCoords } from "../store/actionsGenerators";
 import { Bar, Button } from "./styles/SearchBar.SC";
+import { BsGeoAlt } from "react-icons/bs";
 
-// export default function SearchBar({ onSearch }) {
 function SearchBar(props) {
   const [city, setCity] = useState("");
 
@@ -12,22 +12,25 @@ function SearchBar(props) {
     setCity(event.target.value.toLowerCase());
   };
 
-  function onSearch(ciudad) {
-    // return fetchCity(ciudad, setCities, cities);
-    props.cityAdd(ciudad);
-  }
-
   const onKeyPress = (event) => {
     if (event.charCode === 13) {
-      onSearch(city);
+      props.cityAdd(city);
       setCity("");
     }
   };
 
   const handleOnSearch = () => {
-    onSearch(city);
+    props.cityAdd(city);
     setCity("");
   };
+
+  const geoOnClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos)=>{
+        props.cityAddByCoords(pos.coords.latitude,pos.coords.longitude)
+      })
+    }
+  }
 
   return (
     <>
@@ -41,8 +44,11 @@ function SearchBar(props) {
         onKeyPress={onKeyPress}
       ></Bar>
       <Button onClick={handleOnSearch}>+</Button>
+      <Button style={{ padding: "6px 6px" }} onClick={geoOnClick}>
+        <BsGeoAlt />
+      </Button>
     </>
   );
 }
 
-export default connect(null, { cityAdd })(SearchBar);
+export default connect(null, { cityAdd, cityAddByCoords })(SearchBar);
