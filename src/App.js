@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import MainCard from "./components/MainCard";
 import InfoCard from "./components/InfoCard";
@@ -9,52 +10,19 @@ import Help from "./components/Help.jsx";
 
 import { Content, ContentFlexBox } from "./components/styles/App.SC";
 
-import fetchCity from "./services/fetchCity";
-
-function App() {
-  const [cities, setCities] = useState([]);
-
-  function onSearch(ciudad) {
-    return fetchCity(ciudad, setCities, cities);
-  }
-
-  function onClose(id) {
-    setCities((oldCities) => oldCities.filter((c) => c.id !== id));
-  }
-
-  function onSelect(id) {
-    setCities((cities) => {
-      const index = cities.map((city) => city.id).indexOf(id);
-      return [
-        cities[index],
-        ...cities.slice(1, index),
-        cities[0],
-        ...cities.slice(index + 1),
-      ];
-    });
-  }
-
-  function onFilter(id) {
-    let city = cities.filter((c) => c.id === parseInt(id));
-    if (city.length > 0) {
-      return city[0];
-    } else {
-      return null;
-    }
-  }
-
-  const [first, ...rest] = cities;
+function App(props) {
+  const [first] = props.cities ? props.cities : [];
 
   return (
     <>
       <Route path="/">
-        <Navbar onSearch={onSearch} />
+        <Navbar />
       </Route>
       <Route path="/" exact>
         <Content>
-          {first && <MainCard city={first} onClose={onClose} key={first.id} />}
+          {first && <MainCard />}
           <ContentFlexBox>
-            <Cards cities={rest} onClose={onClose} onSelect={onSelect} />
+            <Cards />
           </ContentFlexBox>
         </Content>
       </Route>
@@ -66,11 +34,9 @@ function App() {
         path="/:id"
         render={({ match }) => (
           <Content>
-            {first && <InfoCard
-              city={onFilter(match.params.id)}
-              onClose={onClose}
-              key={match.params.id}
-            />}
+            {match.params.id && (
+              <InfoCard id={match.params.id} key={match.params.id} />
+            )}
           </Content>
         )}
       ></Route>
@@ -78,4 +44,10 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    cities: state.cities,
+  };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,25 +1,32 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
+import { cityAdd } from "../store/actionsGenerators";
 import { Bar, Button } from "./styles/SearchBar.SC";
 
-export default function SearchBar({ onSearch }) {
-
+// export default function SearchBar({ onSearch }) {
+function SearchBar(props) {
   const [city, setCity] = useState("");
 
   const onChange = (event) => {
     setCity(event.target.value.toLowerCase());
   };
 
+  function onSearch(ciudad) {
+    // return fetchCity(ciudad, setCities, cities);
+    props.cityAdd(ciudad);
+  }
+
   const onKeyPress = (event) => {
     if (event.charCode === 13) {
       onSearch(city);
-      setCity('')
+      setCity("");
     }
   };
-  
+
   const handleOnSearch = () => {
     onSearch(city);
-    setCity('')
+    setCity("");
   };
 
   return (
@@ -37,3 +44,5 @@ export default function SearchBar({ onSearch }) {
     </>
   );
 }
+
+export default connect(null, { cityAdd })(SearchBar);

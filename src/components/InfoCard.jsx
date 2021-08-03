@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import CloseButton from "./CloseButton";
-import { AiOutlineCaretLeft } from "react-icons/ai"
+import CardButton from "./CardButton";
+import { AiOutlineCaretLeft } from "react-icons/ai";
 
 import {
   Container,
@@ -13,17 +14,26 @@ import {
   Text,
   Temp,
   Data,
-} from "./styles/MainCard.SC";
+} from "./styles/InfoCard.SC";
 
-
-export default function Card({ city, onClose }) {
+function InfoCard(props) {
+  function onFilter(id) {
+    const city = props.cities.filter((c) => c.id === parseInt(id));
+    if (city.length > 0) {
+      return city[0];
+    } else {
+      return null;
+    }
+  }
+  const city = onFilter(props.id);
+  
   return (
     <Container>
       <Header>
         <Link to="/">
-          <CloseButton>
+          <CardButton>
             <AiOutlineCaretLeft />
-          </CloseButton>
+          </CardButton>
         </Link>
       </Header>
       <Row>
@@ -74,3 +84,11 @@ export default function Card({ city, onClose }) {
     </Container>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+    cities: state.cities,
+  };
+}
+
+export default connect(mapStateToProps)(InfoCard);

@@ -1,10 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Card from "./Card.jsx";
 
-export default function Cards({ cities, onClose, onSelect }) {
+function Cards(props) {
+  const rest = props.cities.slice(1)
   return (
     <>
-      {cities.map((city) => (
+      {rest.map((city) => (
         <Card
           key={city.id}
           id={city.id}
@@ -12,10 +15,16 @@ export default function Cards({ cities, onClose, onSelect }) {
           min={city.min}
           max={city.max}
           img={city.img}
-          onClose={() => onClose(city.id)}
-          onSelect={() => onSelect(city.id)}
         />
       ))}
     </>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+    cities: state.cities,
+  };
+}
+
+export default connect(mapStateToProps)(Cards);

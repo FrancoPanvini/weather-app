@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-import CloseButton from "./CloseButton";
+import CardButton from "./CardButton";
 
 import { Container, Header, Title, Row, Text, Temp } from "./styles/Card.SC";
 import { AiFillCaretUp } from "react-icons/ai";
@@ -12,14 +12,14 @@ export default function Card(props) {
     <Container>
       <Header>
         <Link to={`/${props.id}`}>
-        <CloseButton >
+        <CardButton >
           <FaInfo />
-        </CloseButton>
+        </CardButton>
         </Link>
-        <CloseButton onClose={props.onSelect}>
+        <CardButton type='main' id={props.id} >
           <AiFillCaretUp />
-        </CloseButton>
-        <CloseButton onClose={props.onClose}>&#10006;</CloseButton>
+        </CardButton>
+        <CardButton type='close' id={props.id}>&#10006;</CardButton>
       </Header>
       <Row>
         <Title>{props.name}</Title>

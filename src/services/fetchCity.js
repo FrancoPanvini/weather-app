@@ -1,8 +1,9 @@
+import { ADD_CITY } from "../store/actionsNames";
+
 const apiKey = process.env.REACT_APP_API_KEY;
 
-function fetchCity(ciudad, setCities, cities) {
-  const citiesId = cities && cities.map((city) => city.id)
-  fetch(
+function fetchCity(ciudad,dispatch) {
+  return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
   )
     .then((r) => r.json())
@@ -24,11 +25,11 @@ function fetchCity(ciudad, setCities, cities) {
           latitud: recurso.coord.lat,
           longitud: recurso.coord.lon,
         };
-        !citiesId ? setCities((oldCities) => [...oldCities, ciudad]) : citiesId.includes(ciudad.id) ? alert('Ciudad ya agregada') : setCities((oldCities) => [...oldCities, ciudad]);
+        dispatch({ type: ADD_CITY, ciudad });
       } else {
         alert("Ciudad no encontrada");
       }
     });
 }
 
-export default fetchCity
+export default fetchCity;
