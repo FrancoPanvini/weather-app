@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoMdHelpCircleOutline } from "react-icons/io";
-import { RiHome2Line} from "react-icons/ri";
+import { RiHome2Line } from "react-icons/ri";
 
 import SearchBar from "./SearchBar.jsx";
 import icon from "../media/favicon.png";
 
 import { Nav, Title, Bar, Buttons, Image } from "./styles/Navbar.SC.js";
 import { Button } from "./styles/SearchBar.SC";
+import NLStyle from './styles/NavLink.css'
 
 function Navbar({ onSearch }) {
   return (
@@ -22,16 +23,16 @@ function Navbar({ onSearch }) {
         <SearchBar onSearch={onSearch} />
       </Bar>
       <Buttons>
-        <Link to="/">
+        <NavLink exact to="/" activeClassName={NLStyle.active}>
           <Button style={{ padding: "6px 6px" }}>
             <RiHome2Line />
           </Button>
-        </Link>
-        <Link to="/help">
+        </NavLink>
+        <NavLink exact to="/help">
           <Button style={{ padding: "6px 6px" }}>
             <IoMdHelpCircleOutline />
           </Button>
-        </Link>
+        </NavLink>
       </Buttons>
     </Nav>
   );
