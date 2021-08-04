@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Card from "./Card.jsx";
 
 function Cards(props) {
-  const rest = props.cities.slice(1)
+  const rest = props.cities?.slice(1)
   return (
     <>
       {rest.map((city) => (
