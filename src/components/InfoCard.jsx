@@ -28,6 +28,8 @@ function InfoCard(props) {
   const city = onFilter(props.id);
   
   return (
+    <>
+    {city && (  
     <Container>
       <Header>
         <Link to="/">
@@ -82,6 +84,8 @@ function InfoCard(props) {
         <Data>{Math.round(city.humidity)}%</Data>
       </Cell>
     </Container>
+    )}
+    </>
   );
 }
 

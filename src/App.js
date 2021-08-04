@@ -26,7 +26,7 @@ function App(props) {
           </ContentFlexBox>
         </Content>
       </Route>
-      <Route path="/help">
+      <Route exact path="/help">
         <Help />
       </Route>
       <Route
