@@ -1,4 +1,4 @@
-export const buttonAnimation = `
+const buttonAnimation = `
   /* Animation */
   
   @-webkit-keyframes jello-horizontal {
@@ -63,3 +63,5 @@ export const buttonAnimation = `
   }
   /* End Animation */
   `;
+
+  export default buttonAnimation

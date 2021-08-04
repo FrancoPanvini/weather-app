@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import buttonAnimation from './ButtonAnimation.SC.JS'
+import buttonAnimation from './ButtonAnimation.SC'
 
-
+console.log(buttonAnimation)
 export const Bar = styled.input`
   margin: .5rem 1rem .5rem 1rem;
   width: 40vw;

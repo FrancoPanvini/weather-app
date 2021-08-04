@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import buttonAnimation from './ButtonAnimation.SC.JS'
+import buttonAnimation from './ButtonAnimation.SC'
 
 export const Nav = styled.div`
   position: fixed;
