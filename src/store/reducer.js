@@ -5,7 +5,8 @@ const initialState = { cities: [] };
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CITY:
-      const citiesId = state.cities && state.cities.map((city) => city.id);
+      // const citiesId = state.cities && state.cities.map((city) => city.id);
+      const citiesId = state.cities ? state.cities.map((city) => city.id) : [];
       if (!citiesId.includes(action.ciudad.id)) {
         return { ...state, cities: [...state.cities, action.ciudad] };
       } else {
