@@ -33,7 +33,7 @@ function SearchBar(props) {
   }
 
   return (
-    <>
+    <React.Fragment>
       <Bar
         type="text"
         id="ciudad"
@@ -47,7 +47,7 @@ function SearchBar(props) {
       <Button style={{ padding: "6px 6px" }} onClick={geoOnClick}>
         <BsGeoAlt />
       </Button>
-    </>
+    </React.Fragment>
   );
 }
 

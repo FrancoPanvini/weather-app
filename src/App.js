@@ -14,7 +14,7 @@ function App(props) {
   const [first] = props.cities ? props.cities : [];
 
   return (
-    <>
+    <React.Fragment>
       <Route path="/">
         <Navbar />
       </Route>
@@ -40,7 +40,7 @@ function App(props) {
           </Content>
         )}
       ></Route>
-    </>
+    </React.Fragment>
   );
 }
 

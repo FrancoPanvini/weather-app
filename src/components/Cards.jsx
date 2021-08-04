@@ -6,7 +6,7 @@ import Card from "./Card.jsx";
 function Cards(props) {
   const rest = props.cities !== undefined ? props.cities.slice(1) : [];
   return (
-    <>
+    <React.Fragment>
       {rest.map((city) => (
         <Card
           key={city.id}
@@ -17,7 +17,7 @@ function Cards(props) {
           img={city.img}
         />
       ))}
-    </>
+    </React.Fragment>
   );
 }
 

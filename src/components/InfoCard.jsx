@@ -18,7 +18,7 @@ import {
 
 function InfoCard(props) {
   function onFilter(id) {
-    const city = props.cities.filter((c) => c.id === parseInt(id));
+    const city = props.cities.filter((c) => c.id === parseInt(id,10));
     if (city.length > 0) {
       return city[0];
     } else {
@@ -28,7 +28,7 @@ function InfoCard(props) {
   const city = onFilter(props.id);
   
   return (
-    <>
+    <React.Fragment>
     {city && (  
     <Container>
       <Header>
@@ -85,7 +85,7 @@ function InfoCard(props) {
       </Cell>
     </Container>
     )}
-    </>
+    </React.Fragment>
   );
 }
 
