@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import buttonAnimation from './ButtonAnimation.SC'
 
 export const Bar = styled.input`
   margin: .5rem 1rem .5rem 1rem;
@@ -43,16 +42,6 @@ export const Button = styled.button`
   &:hover {
     opacity: 1;
   }
-
-  /* Animation
-  
-  &:focus {
-    -webkit-animation: jello-horizontal 1s ease-in-out;
-    animation: jello-horizontal 1s ease-in-out;
-  }
-  ${buttonAnimation}  
-
-   End Animation */
   
   `;
   
