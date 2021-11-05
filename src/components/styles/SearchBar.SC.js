@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import buttonAnimation from './ButtonAnimation.SC'
+//import buttonAnimation from './ButtonAnimation.SC'
 
 export const Bar = styled.input`
   margin: .5rem 1rem .5rem 1rem;
@@ -44,7 +44,7 @@ export const Button = styled.button`
     opacity: 1;
   }
 
-  /* Animation */
+  /* Animation
   
   &:focus {
     -webkit-animation: jello-horizontal 1s ease-in-out;
@@ -52,7 +52,7 @@ export const Button = styled.button`
   }
   ${buttonAnimation}  
 
-  /* End Animation */
+   End Animation */
   
   `;
   
