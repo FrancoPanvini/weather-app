@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 const persistedState = localStorage.getItem("State")
   ? JSON.parse(localStorage.getItem("State"))
-  : {};
+  : { cities: [] };
 
 const store = createStore(
   reducer,
