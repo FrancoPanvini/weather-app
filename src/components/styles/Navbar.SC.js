@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import buttonAnimation from './ButtonAnimation.SC'
+//import buttonAnimation from './ButtonAnimation.SC'
 
 export const Nav = styled.div`
   position: fixed;
@@ -23,7 +23,7 @@ export const Image = styled.img`
   height: 3rem;
   margin: 0 1rem;
 
-  /* Animation */
+  /* Animation
   
   &:hover {
     -webkit-animation: jello-horizontal 1s ease-in-out;
@@ -31,7 +31,7 @@ export const Image = styled.img`
   }
   ${buttonAnimation} 
 
-  /* End Animation */
+  End Animation */
 `;
 
 export const Title = styled.div`
